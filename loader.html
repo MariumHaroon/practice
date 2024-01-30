@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loader</title>
+</head>
+<style>
+    .overlay{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    #btn{
+        cursor: pointer;
+    }
+    #more{
+        display: none;
+    }
+</style>
+<body>
+    <div class="overlay">
+        <h3>Click here for more data</h3>
+        <button id="btn">Click here</button>
+        
+        <h3 id="more">More data has been loaded</h3>
+        <div class="loader">
+            <img src="./img/19.gif" alt="">
+        </div>
+    </div>
+
+    <script src="./js/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.loader').delay(2000).fadeOut("slow")
+            $('#btn').click(function(){
+                $(".loader").fadeIn("fast")
+                $('.loader').delay(2000).fadeOut("slow")
+
+                setTimeout(()=>{
+                    $("#more").css("display" , "block")
+                } ,3000)
+
+            })
+        })
+    </script>
+</body>
+</html>
